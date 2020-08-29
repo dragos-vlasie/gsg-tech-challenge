@@ -107,8 +107,17 @@ function App() {
   return (
     <div className="App">
       <h1> Restaurant Menu</h1>
-      {menuData.map((data) => (
-        <MenuOptions data={data} />
+      {menuData.map((data, index) => (
+        <div
+          key={"menu-item" + index}
+          style={{
+            border: "1px solid grey",
+            margin: "16px",
+            display: "inline-block",
+          }}
+        >
+          <MenuOptions data={data} />
+        </div>
       ))}
     </div>
   );
