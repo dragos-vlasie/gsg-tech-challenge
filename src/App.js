@@ -1,24 +1,115 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import MenuOptions from "./components/MenuOptions";
+
+const menuData = [
+  {
+    label: "Bacon & Eggs",
+    children: [
+      {
+        label: "Bacon",
+        children: [
+          {
+            label: "Meat",
+            children: [
+              {
+                label: "Pork",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "Ham Eggs",
+        children: [
+          {
+            label: "Egg",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Hamburger",
+    children: [
+      {
+        label: "Meat",
+        children: [
+          {
+            label: "Pork",
+          },
+        ],
+      },
+      {
+        label: "Bread",
+        children: [
+          {
+            label: "Flour",
+          },
+          {
+            label: "Water",
+          },
+        ],
+      },
+      {
+        label: "Cheese",
+        children: [
+          {
+            label: "Milk",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "English Breakfast",
+    children: [
+      {
+        label: "Fried Eggs",
+        children: [
+          {
+            label: "Egg",
+          },
+        ],
+      },
+      {
+        label: "Mushrooms",
+      },
+      {
+        label: "Sausages",
+        children: [
+          {
+            label: "Meat",
+            children: [
+              {
+                label: "Pork",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "Bread",
+        children: [
+          {
+            label: "Flour",
+          },
+          {
+            label: "Water",
+          },
+        ],
+      },
+    ],
+  },
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Restaurant Menu</h1>
+      {menuData.map((data) => (
+        <MenuOptions data={data} />
+      ))}
     </div>
   );
 }
