@@ -111,9 +111,8 @@ function App() {
         <div
           key={"menu-item" + index}
           style={{
-            border: "1px solid grey",
-            margin: "16px",
-            display: "inline-block",
+            margin: "36px",
+            display: "block",
           }}
         >
           <MenuOptions data={data} />
