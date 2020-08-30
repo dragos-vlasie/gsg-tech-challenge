@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import MenuOptions from "./components/MenuOptions";
+import SearchForm from "./components/SearchForm";
 
 const menuData = [
   {
@@ -104,9 +105,12 @@ const menuData = [
 ];
 
 function App() {
+  const [searchedInput, setSearchedInput] = useState("");
+
   return (
     <div className="App">
       <h1> Restaurant Menu</h1>
+      <SearchForm searchedInput={searchedInput} onChange={(e) => setSearchedInput(e.target.value)} />
       {menuData.map((data, index) => (
         <div
           key={"menu-item" + index}
@@ -115,7 +119,7 @@ function App() {
             display: "block",
           }}
         >
-          <MenuOptions data={data} />
+          <MenuOptions data={data} string={searchedInput} />
         </div>
       ))}
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Text = ({ label, level = 1, width }) => {
+export const Text = ({ label, level = 1, width, string }) => {
   const styles = {
     label: {
       margin: "0",
@@ -24,11 +24,20 @@ export const Text = ({ label, level = 1, width }) => {
       margin: "auto",
     },
   };
+
   return (
     <div>
       <h4 style={styles.label}>
-        {label}
         {level > 1 ? <span style={styles.span}></span> : null}
+        {level > 1 && string ? (
+          <span
+            dangerouslySetInnerHTML={{
+              __html: label.replace(new RegExp(string, "gi"), (match) => `<mark>${match}</mark>`),
+            }}
+          />
+        ) : (
+          label
+        )}
       </h4>
     </div>
   );
