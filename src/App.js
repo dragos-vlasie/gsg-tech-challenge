@@ -112,15 +112,7 @@ function App() {
       <h1> Restaurant Menu</h1>
       <SearchForm searchedInput={searchedInput} onChange={(e) => setSearchedInput(e.target.value)} />
       {menuData.map((data, index) => (
-        <div
-          key={"menu-item" + index}
-          style={{
-            margin: "36px",
-            display: "block",
-          }}
-        >
-          <MenuOptions data={data} string={searchedInput} />
-        </div>
+        <MenuOptions key={index} data={data} string={searchedInput} />
       ))}
     </div>
   );

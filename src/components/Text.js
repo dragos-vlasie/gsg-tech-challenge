@@ -1,24 +1,25 @@
 import React from "react";
 
-export const Text = ({ label, level = 1, width, string }) => {
+export const Text = ({ label, level = 1, widthValue, string, onClick }) => {
   const styles = {
     label: {
       margin: "0",
       position: "relative",
       border: "1px solid",
       display: "inline-block",
-      padding: "0 16px",
+      padding: "4px 16px",
       borderRadius: "8px",
-      width: `${width}`,
+      width: `${widthValue}`,
       color: "white",
+      cursor: "pointer",
     },
     span: {
       background: "#fff",
       width: "2px",
-      height: "8px",
+      height: "21px",
       display: "block",
       position: "absolute",
-      top: "-9px",
+      top: "-21px",
       left: "0",
       right: "0",
       margin: "auto",
@@ -26,8 +27,12 @@ export const Text = ({ label, level = 1, width, string }) => {
   };
 
   return (
-    <div>
-      <h4 style={styles.label}>
+    <div
+      style={{
+        margin: "6px 0",
+      }}
+    >
+      <h4 style={styles.label} onClick={onClick}>
         {level > 1 ? <span style={styles.span}></span> : null}
         {level > 1 && string ? (
           <span
